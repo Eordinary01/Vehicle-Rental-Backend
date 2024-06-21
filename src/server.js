@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   
   // Define CORS options
   const corsOptions = {
-    origin: ['http://localhost:3000/','https://vercel.com/extraordinarys-projects/vehicle-rental-backend/kde1Eu427uoCckRD4cm9q6xFxZhj','https://vehicle-rental-frontend-1hw5.vercel.app/','https://vehicle-rental-frontend-1hw5-ef843jaeu-extraordinarys-projects.vercel.app/'],
+    origin: ['http://localhost:3000/','https://vercel.com/extraordinarys-projects/vehicle-rental-backend/kde1Eu427uoCckRD4cm9q6xFxZhj','https://vehicle-rental-frontend-1hw5.vercel.app/','https://vehicle-rental-frontend-1hw5-ef843jaeu-extraordinarys-projects.vercel.app/','https://vehicle-rental-backend-git-master-extraordinarys-projects.vercel.app/'],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     credentials: true,
     optionsSuccessStatus: 204
