@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   
   // Define CORS options
   const corsOptions = {
-    origin: ['http://localhost:3000/'],
+    origin: ['http://localhost:3000/','https://vercel.com/extraordinarys-projects/vehicle-rental-backend/kde1Eu427uoCckRD4cm9q6xFxZhj'],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     credentials: true,
     optionsSuccessStatus: 204
