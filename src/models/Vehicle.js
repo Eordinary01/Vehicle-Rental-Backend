@@ -21,6 +21,19 @@ const VehicleSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  wheelCount: {
+    type: Number,
+    enum: [2, 4],
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  features: {
+    type: [String],
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Vehicle", VehicleSchema);

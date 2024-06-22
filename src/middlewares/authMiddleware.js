@@ -1,3 +1,4 @@
+// middlewares/authMiddleware.js
 const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {
@@ -8,12 +9,15 @@ const auth = (req, res, next) => {
   }
 
   const token = authHeader.replace('Bearer ', '');
-  
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (err) {
+    if (err.name === 'TokenExpiredError') {
+      return res.status(401).send({ error: 'Token expired' });
+    }
     res.status(401).send({ error: 'Invalid token' });
   }
 };
@@ -25,12 +29,12 @@ const admin = async (req, res, next) => {
     }
 
     console.log('Decoded token:', req.user);
-    
+
     if (req.user.role !== 'admin') {
       console.log('User role:', req.user.role);
       return res.status(403).send({ error: 'Unauthorized' });
     }
-    
+
     next();
   } catch (err) {
     res.status(500).send({ error: 'Internal server error' });
