@@ -18,7 +18,8 @@ const corsOptions = {
     'https://vercel.com/extraordinarys-projects/vehicle-rental-backend/kde1Eu427uoCckRD4cm9q6xFxZhj',
     'https://vehicle-rental-frontend-1hw5.vercel.app',
     'https://vehicle-rental-frontend-1hw5-ef843jaeu-extraordinarys-projects.vercel.app',
-    'https://vehicle-rental-backend-git-master-extraordinarys-projects.vercel.app'
+    'https://vehicle-rental-backend-git-master-extraordinarys-projects.vercel.app',
+    'https://vehicle-rental-frontend-nu.vercel.app/'
   ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
