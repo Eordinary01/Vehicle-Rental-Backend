@@ -1,3 +1,4 @@
+// Vehicle Controller (controllers/vehicleController.js)
 const Vehicle = require('../models/Vehicle');
 
 const getVehicles = async (req, res) => {
@@ -10,9 +11,9 @@ const getVehicles = async (req, res) => {
 };
 
 const addVehicle = async (req, res) => {
-  const { name, type, image, pricePerDay, available, wheelCount, description, features } = req.body;
+  const { name, type, image, pricePerDay, available, wheelCount, description, features, fuelType, transmission, capacity, year } = req.body;
   try {
-    const vehicle = new Vehicle({ name, type, image, pricePerDay, available, wheelCount, description, features });
+    const vehicle = new Vehicle({ name, type, image, pricePerDay, available, wheelCount, description, features, fuelType, transmission, capacity, year });
     await vehicle.save();
     res.status(201).send(vehicle);
   } catch (err) {
@@ -22,14 +23,13 @@ const addVehicle = async (req, res) => {
 
 const updateVehicle = async (req, res) => {
   const { id } = req.params;
-  console.log('Vehicle ID from req.params:', id); // Log the id for debugging
+  console.log('Vehicle ID from req.params:', id);
   let updates = req.body;
 
-  // If the action is 'fetch', return the vehicle details without updating
   if (updates.action === 'fetch') {
     try {
       const vehicle = await Vehicle.findById(id);
-      console.log('Vehicle data found:', vehicle); // Log the vehicle data for debugging
+      console.log('Vehicle data found:', vehicle);
       if (!vehicle) {
         return res.status(404).send({ message: "Vehicle not found" });
       }
@@ -40,7 +40,6 @@ const updateVehicle = async (req, res) => {
     }
   }
 
-  // Ensure features is always an array
   if (typeof updates.features === 'string') {
     updates.features = updates.features.split(',').map(item => item.trim());
   }
