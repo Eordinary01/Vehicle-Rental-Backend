@@ -11,20 +11,13 @@ connectDB();
 
 app.use(express.json());
 
-// Define CORS options
-const corsOptions = {
-  origin: [
-    'http://127.0.0.1:3000', // Your frontend origin
-    'https://vehicle-rental-frontend-1hw5.vercel.app/',
-    'https://vehicle-rental-backend.vercel.app/' 
-  ],
+// Apply CORS middleware
+app.use(cors({
+  origin: 'https://vehicle-rental-frontend-1hw5.vercel.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
   optionsSuccessStatus: 204
-};
-
-// Apply CORS middleware
-app.use(cors(corsOptions));
+}));
 
 app.get('/', (req, res) => {
   res.json({ message: 'Server Started!!Dev ' });
