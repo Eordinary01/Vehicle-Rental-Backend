@@ -15,7 +15,8 @@ app.use(express.json());
 const corsOptions = {
   origin: [
     'http://127.0.0.1:3000', // Your frontend origin
-    'https://vehicle-rental-frontend-1hw5.vercel.app/', 
+    'https://vehicle-rental-frontend-1hw5.vercel.app/',
+    'https://vehicle-rental-backend.vercel.app/' 
   ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   credentials: true,
